@@ -7,16 +7,51 @@
 //
 
 #import "AppDelegate.h"
+#import "MainViewController.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow:) name:UIKeyboardDidShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidHide:) name:UIKeyboardDidHideNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillChangeFrame:) name:UIKeyboardWillChangeFrameNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidChangeFrame:) name:UIKeyboardDidChangeFrameNotification object:nil];
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
+    self.window.rootViewController = [[MainViewController alloc] initWithNibName:@"MainViewController" bundle:nil];
+    
     [self.window makeKeyAndVisible];
     return YES;
+}
+
+-(void) keyboardWillShow:(NSNotification*)notification {
+    NSLog(@"+ keyboardWillShow %@",notification.userInfo);
+}
+
+-(void) keyboardDidShow:(NSNotification*)notification {
+    NSLog(@"+ keyboardDidShow %@",notification.userInfo);
+}
+
+-(void) keyboardWillHide:(NSNotification*)notification {
+    NSLog(@"+ keyboardWillHide %@",notification.userInfo);
+}
+
+-(void) keyboardDidHide:(NSNotification*)notification {
+    NSLog(@"+ keyboardDidHide %@",notification.userInfo);
+}
+
+-(void) keyboardWillChangeFrame:(NSNotification*)notification {
+    NSLog(@"+ keyboardWillChangeFrame %@",notification.userInfo);
+}
+
+-(void) keyboardDidChangeFrame:(NSNotification*)notification {
+    NSLog(@"+ keyboardDidChangeFrame %@",notification.userInfo);
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

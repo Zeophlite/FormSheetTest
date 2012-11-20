@@ -246,6 +246,7 @@
 		65BCC6E3165A207300D1F8FA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FormSheetTest/FormSheetTest-Prefix.pch";
 				INFOPLIST_FILE = "FormSheetTest/FormSheetTest-Info.plist";
@@ -257,6 +258,7 @@
 		65BCC6E4165A207300D1F8FA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FormSheetTest/FormSheetTest-Prefix.pch";
 				INFOPLIST_FILE = "FormSheetTest/FormSheetTest-Info.plist";
@@ -284,6 +286,7 @@
 				65BCC6E4165A207300D1F8FA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
